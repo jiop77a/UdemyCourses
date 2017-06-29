@@ -1,1 +1,3 @@
-console.log("hello world take 3");
+import { fellowship } from './fellowship.js';
+
+console.log(fellowship);
