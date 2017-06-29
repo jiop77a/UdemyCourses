@@ -1,3 +1,15 @@
-import { fellowship } from './fellowship.js';
+import Animal from './animal.js';
 
-console.log(fellowship);
+class Lion extends Animal {
+  constructor(name, height, color) {
+    super(name, height);
+    this.color = color;
+  }
+
+  hello() {
+    console.log(`Hi, I'm ${this.name} from pride rock`);
+  }
+}
+
+let son = new Lion("Simba", 2, "gold");
+console.log(son.hello());
