@@ -39,17 +39,36 @@
         "
         fill="none" stroke="yellow" stroke-width="10">
       </path> -->
-      <a xlink:href="https://google.com" target="_blank">
-      <text
-        x="50"
-        y="50"
-        fill="red"
-        font-size="30">Hello World!
-        <tspan
-          x="200"
-          y="200">Second Line!</tspan>
+      <!-- <a xlink:href="https://google.com" target="_blank">
+        <text
+          x="50"
+          y="50"
+          fill="red"
+          font-size="30">Hello World!
+          <tspan
+            x="200"
+            y="200">Second Line!</tspan>
+        </text>
+      </a> -->
+      <!-- <defs>
+        <g id="rectangle">
+          <rect width="50" height="50"></rect>
+          <rect width="50" height="50" x="50" fill="blue"></rect>
+        </g>
+      </defs>
+      <use xlink:href="#rectangle"></use> -->
+      <defs>
+        <path id="custom_text_path"
+          d="M0,0 L300,300">
+
+        </path>
+      </defs>
+
+      <text x="100" y="100" stroke="#00" font-size="30">
+        <textPath xlink:href="#custom_text_path">
+          Hello World!
+        </textPath>
       </text>
-    </a>
     </svg>
   </body>
 </html>
