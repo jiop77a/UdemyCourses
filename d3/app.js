@@ -7,7 +7,8 @@ var el = d3.select('body')
           .data(dataset)
           .enter()
           .append('p')
-          .text("Hello World");
+          .text((d) =>
+            `This paragraph is bound to the number ${d}`);
             // .append('p')
             // .classed('foo', true)
             // .classed('bar', true)
