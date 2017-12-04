@@ -1,4 +1,6 @@
-d3.csv('data.csv', (err, data) => {
+/* globals d3 */
+
+d3.csv('table_test.csv', (err, data) => {
   if (err) {
     return console.log(err);
   }
@@ -6,7 +8,16 @@ d3.csv('data.csv', (err, data) => {
   // generate(data.columns);
 });
 
-// const generate = (dataset) => {
+// d3.json('data.json', (err, data) => {
+//   if(err) {
+//     return console.log(err);
+//   }
+//   console.log(data);
+//   generate(data);
+// });
+
+
+const generate = (dataset) => {
 
   // var dataset = [10, 20, 30, 40, 50];
 
@@ -34,4 +45,4 @@ d3.csv('data.csv', (err, data) => {
   });
   console.log(el);
 
-}
+};
