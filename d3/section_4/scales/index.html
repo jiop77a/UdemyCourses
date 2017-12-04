@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scales</title>
+  </head>
+  <body>
+
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script>
+    let slices = [100, 200, 300, 400, 500];
+    let scale = d3.scaleLinear()
+          .domain([d3.min(slices), d3.max(slices)])
+          .range([10, 350]);
+  </script>
+  </body>
+</html>
