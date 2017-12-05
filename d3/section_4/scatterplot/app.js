@@ -34,7 +34,11 @@ let r_scale = d3.scaleLinear()
         .range([5, 30]);
 
 //axis
-let x_axis = d3.axisBottom(x_scale);
+let x_axis = d3.axisBottom(x_scale)
+                // .ticks(6)
+                .tickValues([0, 150, 250, 600, 700]);
+
+
 svg.append('g')
   .attr('class', 'x-axis')
   .attr('transform', 'translate(0,' + (chart_height - padding) + ')')
