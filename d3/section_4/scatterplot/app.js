@@ -33,6 +33,14 @@ let r_scale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[1])])
         .range([5, 30]);
 
+//axis
+let x_axis = d3.axisBottom(x_scale);
+svg.append('g')
+  .attr('class', 'x-axis')
+  .attr('transform', 'translate(0,' + (chart_height - padding) + ')')
+  .call(x_axis);
+
+
 
 //circles
 svg.selectAll('circle')
@@ -45,7 +53,8 @@ svg.selectAll('circle')
   .attr('fill', '#D1AB0E');
 
 //labels
-svg.selectAll('text')
+svg.append('g')
+  .selectAll('text')
   .data(data)
   .enter()
   .append('text')
