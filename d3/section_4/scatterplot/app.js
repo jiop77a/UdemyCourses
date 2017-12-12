@@ -1,3 +1,6 @@
+/* eslint camelcase: 0 */
+/* globals d3 */
+
 let data            =   [
     [ 400, 200 ],
     [ 210,140 ],
@@ -45,7 +48,7 @@ svg.append('g')
   .call(x_axis);
 
 let y_axis = d3.axisLeft(y_scale)
-  .ticks(5)
+  .ticks(5);
   // .tickFormat(d => d + '%')
 
 
