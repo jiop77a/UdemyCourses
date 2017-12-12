@@ -12,9 +12,16 @@ let data            =   [
     [ 90, 220 ]
 ];
 
+let time_parse = d3.timeParse('%m/%d/%Y');
+let time_format = d3.timeFormat('%b %e');
 let chart_width     =   800;
 let chart_height    =   400;
 let padding = 50;
+
+//loop through dates
+data.forEach((e, i) => {
+  data[i].date = time_parse(e.date);
+})
 
 //svg
 let svg = d3.select("#chart")
@@ -24,17 +31,21 @@ let svg = d3.select("#chart")
 
 //scales
 
-let x_scale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d[0])])
+let x_scale = d3.scaleTime()
+        .domain([d3.min(data, d => d.date), d3.max(data, d => d.date)])
         .range([padding, chart_width - padding * 2]);
 
 let y_scale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d[1])])
+        .domain([0, d3.max(data, d => d.num)])
         .range([chart_height - padding, padding]);
 
-let r_scale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d[1])])
-        .range([5, 30]);
+// let r_scale = d3.scaleLinear()
+//         .domain([0, d3.max(data, d => d[1])])
+//         .range([5, 30]);
+
+let a_scale = d3.scaleSqrt()
+        .domain([0, d3.max(data, d => d.num)])
+        .range([0, 25]);
 
 //axis
 let x_axis = d3.axisBottom(x_scale);
@@ -62,9 +73,9 @@ svg.selectAll('circle')
   .data(data)
   .enter()
   .append('circle')
-  .attr('cx', d => x_scale(d[0]))
-  .attr('cy', d => y_scale(d[1]))
-  .attr('r', d => d[1] / 10)
+  .attr('cx', d => x_scale(d.date))
+  .attr('cy', d => y_scale(d.num))
+  .attr('r', d => a_scale(d.num))
   .attr('fill', '#D1AB0E');
 
 //labels
@@ -73,6 +84,6 @@ svg.append('g')
   .data(data)
   .enter()
   .append('text')
-  .text(d => d.join(','))
-  .attr('x', d => x_scale(d[0]))
-  .attr('y', d => y_scale(d[1]));
+  .text(d => time_format(d.date))
+  .attr('x', d => x_scale(d.date))
+  .attr('y', d => y_scale(d.num));
