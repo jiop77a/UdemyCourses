@@ -12,6 +12,5 @@
 // console.log(arr[2]());
 // console.log(arr[3]());
 
-var greet = require('./greet');
-greet.english();
-greet.spanish();
+var greet = require('./greet5');
+greet.greet();
