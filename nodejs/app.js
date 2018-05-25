@@ -12,10 +12,17 @@
 // console.log(arr[2]());
 // console.log(arr[3]());
 
-let greet  = require('./greet.js');
+// let greet  = require('./greet6.js');
+// greet();
 
-greet.greet();
-greet.greeting = "changed hello world";
+// greet.greet();
+// greet.greeting = "changed hello world";
+//
+// let greet2  = require('./greet.js');
+// greet2.greet();
 
-let greet2  = require('./greet.js');
-greet2.greet();
+var util = require('util');
+
+var name = 'Tony';
+var greeting = util.format('Hello, %s', name);
+util.log(greeting);
