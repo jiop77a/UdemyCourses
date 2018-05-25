@@ -7,4 +7,4 @@ class Greetr {
   }
 }
 
-export default new Greetr();
+module.exports =  new Greetr();

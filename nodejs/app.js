@@ -12,10 +12,10 @@
 // console.log(arr[2]());
 // console.log(arr[3]());
 
-import greet from './greet.mjs';
+let greet  = require('./greet.js');
 
 greet.greet();
 greet.greeting = "changed hello world";
 
-import greet2 from './greet.mjs';
+let greet2  = require('./greet.js');
 greet2.greet();
