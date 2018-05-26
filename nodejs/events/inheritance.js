@@ -17,19 +17,25 @@
 let EventEmitter = require('events');
 let util = require('util');
 
-class Greetr {
+class Greetr extends EventEmitter {
   constructor() {
+    super();
     this.greeting = 'Hello world!';
+  }
+
+  greet(data) {
+    console.log(`${this.greeting} ${data}`);
+    this.emit('greet', data);
   }
 
 }
 
-util.inherits(Greetr, EventEmitter);
+// util.inherits(Greetr, EventEmitter);
 
-Greetr.prototype.greet = function(data) {
-  console.log(this.greeting + ': ' + data);
-  this.emit('greet', data);
-};
+// Greetr.prototype.greet = function(data) {
+//   console.log(this.greeting + ': ' + data);
+//   this.emit('greet', data);
+// };
 
 let greeter1 = new Greetr();
 
