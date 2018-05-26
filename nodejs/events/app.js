@@ -1,4 +1,4 @@
-var Emitter = require('./emitter.js');
+var Emitter = require('events');
 
 var emtr = new Emitter();
 
